@@ -1,5 +1,6 @@
 package com.example.userregistration
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.userregistration.databinding.ActivityMainBinding
@@ -12,5 +13,10 @@ class MainActivity : AppCompatActivity() {
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
         val view = mainBinding.root
         setContentView(view)
+
+        mainBinding.floatingActionButton.setOnClickListener {
+            val intent =Intent(this,AddUserActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

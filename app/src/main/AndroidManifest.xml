@@ -15,10 +15,10 @@
         android:theme="@style/Theme.UserRegistration"
         tools:targetApi="31">
         <activity
-            android:name=".UpdateUserActivity"
+            android:name=".AddUserActivity"
             android:exported="false" />
         <activity
-            android:name=".AddUserActivity"
+            android:name=".UpdateUserActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
