@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "692648290294",
+    "firebase_url": "https://example-kotlin-68313-default-rtdb.firebaseio.com",
+    "project_id": "example-kotlin-68313",
+    "storage_bucket": "example-kotlin-68313.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692648290294:android:b41374ff404fc1029b09d7",
+        "android_client_info": {
+          "package_name": "com.example.gettingstartedwithfirebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2KpS5fdujE_3yYtq5V9PSztRF7mjIBP4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692648290294:android:7d161c03ee8a84b79b09d7",
+        "android_client_info": {
+          "package_name": "com.example.userregistration"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2KpS5fdujE_3yYtq5V9PSztRF7mjIBP4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
