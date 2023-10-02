@@ -1,6 +1,7 @@
 package com.example.userregistration
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -26,6 +27,16 @@ class UsersAdapter(var context : Context,
         holder.adapterBinding.textViewName.text = userList[position].userName
         holder.adapterBinding.textViewEmail.text = userList[position].userEmail
         holder.adapterBinding.textViewAge.text = userList[position].userAge.toString()
+
+        holder.adapterBinding.linearLayout.setOnClickListener {
+
+            val intent = Intent(context,UpdateUserActivity::class.java)
+            intent.putExtra("id",userList[position].userId)
+            intent.putExtra("name",userList[position].userName)
+            intent.putExtra("email",userList[position].userEmail)
+            intent.putExtra("age",userList[position].userAge)
+            context.startActivity(intent)
+        }
 
     }
 }
