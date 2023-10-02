@@ -3,7 +3,10 @@ package com.example.userregistration
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.userregistration.databinding.ActivityMainBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -31,6 +34,24 @@ class MainActivity : AppCompatActivity() {
             val intent =Intent(this,AddUserActivity::class.java)
             startActivity(intent)
         }
+
+        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0,
+            ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                TODO("Not yet implemented")
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val id = usersAdapter.getUserId(viewHolder.adapterPosition)
+                myReference.child(id).removeValue()
+                Toast.makeText(applicationContext,"Item deleted",Toast.LENGTH_LONG).show()
+            }
+
+        }).attachToRecyclerView(mainBinding.recyclerView)
 
         retriveDataFromDatabase()
     }

@@ -39,4 +39,10 @@ class UsersAdapter(var context : Context,
         }
 
     }
+
+    fun getUserId(position : Int) : String{
+
+        return userList[position].userId
+
+    }
 }
