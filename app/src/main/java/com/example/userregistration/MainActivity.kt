@@ -1,9 +1,12 @@
 package com.example.userregistration
 
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -86,5 +89,33 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.deleteAll){
+            showDialodMessage()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    fun showDialodMessage(){
+
+        val dialogMessage = AlertDialog.Builder(this)
+        dialogMessage.setTitle("Delete All Users")
+        dialogMessage.setMessage("If click Yeas, all users will be deleted,"+
+        "If you want to delete a specific user, you can swipe the item you want to delete right or left")
+        dialogMessage.setNegativeButton("Cancel",DialogInterface.OnClickListener{dialogInterface, i ->
+            dialogInterface.cancel()
+        })
+        dialogMessage.setNegativeButton("Yes",DialogInterface.OnClickListener{dialogInterface, i ->
+            myReference.removeValue().addOnCompleteListener { task ->
+                if(task.isSuccessful){
+                    usersAdapter.notifyDataSetChanged()
+                    Toast.makeText(applicationContext,"All users all deleted",Toast.LENGTH_LONG).show()
+                }
+            }
+        })
+
+        dialogMessage.create().show()
     }
 }
